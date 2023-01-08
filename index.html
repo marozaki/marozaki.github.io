@@ -3,60 +3,59 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./src/css/bootstrap.min.css" type="text/css" />
-    <title>Cari Film</title>
+    <title>Imdb Database Movies</title>
+    <link
+      href="./bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <div class="container">
+      <div class="row mt-5">
+        <div class="col">
+          <h1 class="h1">ImDB Movies</h1>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-md">
-          <h1 class="card-title">Movie Database</h1>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md input-group">
-          <input
-            type="text"
-            class="from-control search-input"
-            aria-label="search"
-            aria-describeby="search-button"
-            placeholder="Search Movie..."
-          />
-          <div class="input-group">
-            <button class="btn btn-primary" type="button">Search</button>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control input-search"
+              placeholder="Search Movies..."
+              value=""
+            />
+            <button class="btn btn-primary" type="button" id="btn-search">
+              Button
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container-md mt-5">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Title(Year)</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Detail</a>
-            </div>
-          </div>
-        </div>
+    <div class="container">
+      <div class="row body-content">
+        <!--body-content-->
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="details-modal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable"></div>
+    </div>
+    <!--Akhir Modal-->
 
     <script
-      src="src/js/bootstrap.min.js"
-      type="text/javascript"
-      charset="utf-8"
+      src="./bootstrap/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
     ></script>
     <script
-      src="src/js/index.js"
+      src="./js/index.js"
       type="text/javascript"
       charset="utf-8"
+      crossorigin="anonymous"
     ></script>
   </body>
 </html>
