@@ -1,3 +1,5 @@
+Alert("Welcome")
+
 const btnSearch = document.querySelector("#btn-search");
 btnSearch.addEventListener("click", async function () {
   const keyword = document.querySelector(".input-search").value;
