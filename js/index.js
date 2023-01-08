@@ -1,4 +1,4 @@
-Alert("Welcome")
+Alert("Welcome");
 
 const btnSearch = document.querySelector("#btn-search");
 btnSearch.addEventListener("click", async function () {
@@ -25,7 +25,7 @@ document.addEventListener("click", async function (el) {
 });
 
 function getDataMovies(key, value) {
-  return fetch(`http://www.omdbapi.com/?apikey=b6596142&${key}=${value}`)
+  return fetch(`https://www.omdbapi.com/?apikey=b6596142&${key}=${value}`)
     .then((resolve) => {
       if (!resolve) {
         throw new Error("url salah!");
