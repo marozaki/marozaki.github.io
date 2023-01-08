@@ -1,4 +1,4 @@
-Alert("Welcome");
+alert("Welcome");
 
 const btnSearch = document.querySelector("#btn-search");
 btnSearch.addEventListener("click", async function () {
