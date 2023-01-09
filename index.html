@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Imdb Database Movies</title>
+    <title>IMDB Database Movies</title>
     <link
       href="./bootstrap/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,15 +11,46 @@
     />
   </head>
   <body>
-    <div class="container">
-      <div class="row mt-5">
-        <div class="col">
-          <h1 class="h1">ImDB Movies</h1>
+    <!--Navbar-->
+    <nav
+      class="navbar shadow fixed-top"
+      style="background-color: #000b76"
+      data-bs-theme="dark"
+    >
+      <div class="container">
+        <span class="navbar-brand fw-bold mb-0 h1">My WebSite</span>
+        <button
+          class="navbar-toggler bg-light mb-2"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse bg-dark ps-3"
+          id="navbarNavAltMarkup"
+        >
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active" aria-current="page" href="#"
+              >IMDB Database Movies</a
+            >
+            <a class="nav-link" href="./portofolio/portofolio.html"
+              >My Profile</a
+            >
+          </div>
         </div>
       </div>
+    </nav>
+    <!--Navbar end-->
 
-      <div class="row">
-        <div class="col-md">
+    <div class="container" style="padding-top: 6rem">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h1 class="h1">Database Movies</h1>
           <div class="input-group mb-3">
             <input
               type="text"
@@ -27,7 +58,7 @@
               placeholder="Search Movies..."
             />
             <button class="btn btn-primary" type="button" id="btn-search">
-              Button
+              Search
             </button>
           </div>
         </div>
@@ -39,6 +70,29 @@
         <!--body-content-->
       </div>
     </div>
+
+    <section class="pt-5" style="background-color: #f3f4f5">
+      <!--Footer-->
+      <div
+        class="container-fluid justify-content-center"
+        style="background-color: #f3f4f5"
+      >
+        <nav class="nav nav-pills nav-fill">
+          <span class="nav-link"
+            >Create by <span class="fw-bold">Rozaki</span></span
+          >
+          <span class="nav-link">CopyRight 2023</span>
+        </nav>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
+        <path
+          fill="#000b76"
+          fill-opacity="1"
+          d="M0,128L40,122.7C80,117,160,107,240,122.7C320,139,400,181,480,176C560,171,640,117,720,106.7C800,96,880,128,960,138.7C1040,149,1120,139,1200,122.7C1280,107,1360,85,1400,74.7L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+        ></path>
+      </svg>
+      <!--Footer End-->
+    </section>
 
     <!-- Modal -->
     <div class="modal fade" id="details-modal" tabindex="-1" aria-hidden="true">

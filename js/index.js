@@ -1,42 +1,61 @@
-alert("Welcome");
+window.addEventListener("load", async function () {
+  try {
+    const dataMovies = await getDataMovies("s", "Avengers");
+    addUI(dataMovies);
+  } catch (e) {
+    alert(e.message);
+  }
+});
 
 const btnSearch = document.querySelector("#btn-search");
 btnSearch.addEventListener("click", async function () {
   const keyword = document.querySelector(".input-search").value;
-  addUI(await getDataMovies("s", keyword));
-  //console.log(keyword);
+  try {
+    const dataMovies = await getDataMovies("s", keyword);
+    addUI(dataMovies);
+  } catch (e) {
+    alert(e.message);
+  }
 });
 
 document.addEventListener("click", async function (el) {
   //apakah di dalam elemen target terdapat class btn-details?
-  // if (el.target.classList.contains("btn-details")) {
-  //   let imdbid = el.target.dataset.imdbid;
-  //   console.log(imdbid);
-  //   addUI(await getDataMovies( "i", imdbid))
-  // }
-
-  //apakah di dalam elemen target terdapat atribut data-imdbid?
-  let targetEl = el.target.dataset;
-  for (let imdbid in targetEl) {
-    if (imdbid === "imdbid") {
-      addUI(await getDataMovies("i", targetEl.imdbid));
+  if (el.target.classList.contains("btn-details")) {
+    let imdbid = el.target.dataset.imdbid;
+    try {
+      const dataMovie = await getDataMovies("i", imdbid);
+      addUI(dataMovie);
+    } catch (e) {
+      alert(e.message);
     }
   }
+
+  //apakah di dalam elemen target terdapat atribut data-imdbid?
+  // let targetEl = el.target.dataset;
+  // for (let imdbid in targetEl) {
+  //   if (imdbid === "imdbid") {
+  //     addUI(await getDataMovies("i", targetEl.imdbid));
+  //   }
+  // }
 });
 
 function getDataMovies(key, value) {
   return fetch(`https://www.omdbapi.com/?apikey=b6596142&${key}=${value}`)
     .then((resolve) => {
-      if (!resolve) {
-        throw new Error("url salah!");
+      //console.log(resolve.ok);
+      if (!resolve.ok) {
+        throw new Error(resolve);
       }
       return resolve.json();
     })
     .then((resolve) => {
-      if (resolve.status === "False") {
-        throw new Error(resolve.statusText);
+      if (resolve.Response === "False") {
+        throw new Error(resolve.Error);
       }
       return key === "s" ? resolve.Search : resolve;
+    })
+    .catch((error) => {
+      throw new Error(error);
     });
 }
 
@@ -101,7 +120,7 @@ function elementDetails(data) {
 }
 
 function elementCard(dataMovie) {
-  return `<div class="col-md-4">
+  return `<div class="col-md-6 mb-3">
           <div class="card">
             <img src="${dataMovie.Poster}" class="card-img-top"/>
             <div class="card-body">
